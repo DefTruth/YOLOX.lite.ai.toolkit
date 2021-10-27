@@ -45,7 +45,7 @@ MNN模型文件下载地址，([Baidu Drive](https://pan.baidu.com/s/1KyO-bCYUv6
 
 |                 Class                 |      Pretrained MNN Files      |              Rename or Converted From (Repo)              | Size  |
 | :-----------------------------------: | :-----------------------------: | :-------------------------------------------------------: | :---: |
-||     *lite::mnn::cv::detection::YoloX*      |          yolox_x.mnn           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 378Mb |
+|    *lite::mnn::cv::detection::YoloX*      |          yolox_x.mnn           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 378Mb |
 |     *lite::mnn::cv::detection::YoloX*      |          yolox_l.mnn           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 207Mb |
 |     *lite::mnn::cv::detection::YoloX*      |          yolox_m.mnn           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 97Mb  |
 |     *lite::mnn::cv::detection::YoloX*      |          yolox_s.mnn           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 34Mb  |
