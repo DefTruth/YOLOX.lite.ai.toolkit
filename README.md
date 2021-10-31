@@ -205,7 +205,7 @@ static void test_tnn()
 }
 ```  
 
-### 5.3 NCNN版本
+### 5.4 NCNN版本
 ```c++
 #include "lite/lite.h"
 
