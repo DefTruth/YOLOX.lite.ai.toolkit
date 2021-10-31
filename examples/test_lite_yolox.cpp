@@ -7,8 +7,8 @@
 static void test_default()
 {
   std::string onnx_path = "../hub/onnx/cv/yolox_s.onnx";
-  std::string test_img_path = "../resources/5.jpg";
-  std::string save_img_path = "../logs/5.jpg";
+  std::string test_img_path = "../resources/4.jpg";
+  std::string save_img_path = "../logs/4.jpg";
 
   // 1. Test Default Engine ONNXRuntime
   auto *yolox = new lite::cv::detection::YoloX(onnx_path); // default
@@ -78,6 +78,25 @@ static void test_mnn()
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
+  std::string param_path = "../hub/ncnn/cv/yolox_s.opt.param";
+  std::string bin_path = "../hub/ncnn/cv/yolox_s.opt.bin";
+  std::string test_img_path = "../resources/5.jpg";
+  std::string save_img_path = "../logs/5.jpg";
+
+  // 4. Test Specific Engine NCNN
+  auto *yolox = new lite::ncnn::cv::detection::YoloX(param_path, bin_path);
+
+  std::vector<lite::types::Boxf> detected_boxes;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  yolox->detect(img_bgr, detected_boxes);
+
+  lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+
+  cv::imwrite(save_img_path, img_bgr);
+
+  std::cout << "NCNN Version Detected Boxes Num: " << detected_boxes.size() << std::endl;
+
+  delete yolox;
 #endif
 }
 

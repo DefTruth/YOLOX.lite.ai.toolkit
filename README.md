@@ -1,5 +1,5 @@
 # yolox.lite.ai.toolkit
-使用Lite.AI.ToolKit 🚀🚀🌟 C++工具箱来跑YOLOX的一些案例(https://github.com/DefTruth/lite.ai.toolkit) , 包含ONNXRuntime C++、MNN和TNN版本。
+使用Lite.AI.ToolKit 🚀🚀🌟 C++工具箱来跑YOLOX的一些案例(https://github.com/DefTruth/lite.ai.toolkit) , 包含ONNXRuntime C++、MNN、TNN和NCNN版本。
 
 <div align='center'>
   <img src='resources/1.jpg' height="100px" width="160px">
@@ -13,15 +13,17 @@
 
 ## 2. C++版本源码
 
-YOLOX C++ 版本的源码包含ONNXRuntime、MNN和TNN三个版本，可以在 [lite.ai.toolkit](https://github.com/DefTruth/lite.ai.toolkit) 工具箱中找到。本项目主要介绍如何基于 [lite.ai.toolkit](https://github.com/DefTruth/lite.ai.toolkit) 工具箱，直接使用YOLOX来跑目标检测。需要说明的是，本项目是基于MacOS下编译的 [liblite.ai.toolkit.v0.1.0.dylib](https://github.com/DefTruth/yolox.lite.ai.toolkit/blob/main/lite.ai.toolkit/lib) 来实现的，对于使用MacOS的用户，可以直接下载本项目包含的*liblite.ai.toolkit.v0.1.0*动态库和其他依赖库进行使用。而非MacOS用户，则需要从[lite.ai.toolkit](https://github.com/DefTruth/lite.ai.toolkit) 中下载源码进行编译。[lite.ai.toolkit](https://github.com/DefTruth/lite.ai.toolkit) c++工具箱目前包含70+流行的开源模型。
+YOLOX C++ 版本的源码包含ONNXRuntime、MNN、TNN和NCNN四个版本，可以在 [lite.ai.toolkit](https://github.com/DefTruth/lite.ai.toolkit) 工具箱中找到。本项目主要介绍如何基于 [lite.ai.toolkit](https://github.com/DefTruth/lite.ai.toolkit) 工具箱，直接使用YOLOX来跑目标检测。需要说明的是，本项目是基于MacOS下编译的 [liblite.ai.toolkit.v0.1.0.dylib](https://github.com/DefTruth/yolox.lite.ai.toolkit/blob/main/lite.ai.toolkit/lib) 来实现的，对于使用MacOS的用户，可以直接下载本项目包含的*liblite.ai.toolkit.v0.1.0*动态库和其他依赖库进行使用。而非MacOS用户，则需要从[lite.ai.toolkit](https://github.com/DefTruth/lite.ai.toolkit) 中下载源码进行编译。[lite.ai.toolkit](https://github.com/DefTruth/lite.ai.toolkit) c++工具箱目前包含70+流行的开源模型。
 * [yolox.cpp](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/ort/cv/yolox.cpp)
 * [yolox.h](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/ort/cv/yolox.h)
 * [mnn_yolox.cpp](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/mnn/cv/mnn_yolox.cpp)
 * [mnn_yolox.h](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/mnn/cv/mnn_yolox.h)
 * [tnn_yolox.cpp](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/tnn/cv/tnn_yolox.cpp)
 * [tnn_yolox.h](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/tnn/cv/tnn_yolox.h)
+* [ncnn_yolox.cpp](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/ncnn/cv/ncnn_yolox.cpp)
+* [ncnn_yolox.h](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/ncnn/cv/ncnn_yolox.h)
 
-ONNXRuntime C++、MNN和TNN版本的推理实现均已测试通过，欢迎白嫖~  
+ONNXRuntime C++、MNN、TNN和NCNN版本的推理实现均已测试通过，欢迎白嫖~  
 
 
 ## 3. 模型文件
@@ -65,6 +67,21 @@ TNN模型文件下载地址，([Baidu Drive](https://pan.baidu.com/s/1lvM2YKyUbE
 |     *lite::tnn::cv::detection::YoloX*      |         yolox_tiny.opt.tnnproto&tnnmodel         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 19Mb  |
 |     *lite::tnn::cv::detection::YoloX*      |         yolox_nano.opt.tnnproto&tnnmodel         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 3.5Mb |
 
+
+### 3.4 NCNN模型文件
+NCNN模型文件下载地址，([Baidu Drive](https://pan.baidu.com/s/1hlnqyNsFbMseGFWscgVhgQ) code: sc7f), 也可以从本直接仓库下载。
+
+|                 Class                 |      Pretrained NCNN Files      |              Rename or Converted From (Repo)              | Size  |
+| :-----------------------------------: | :-----------------------------: | :-------------------------------------------------------: | :---: |
+|     *lite::ncnn::cv::detection::YoloX*      |          yolox_x.opt.param&bin           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 378Mb |
+|     *lite::ncnn::cv::detection::YoloX*      |          yolox_l.opt.param&bin           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 207Mb |
+|     *lite::ncnn::cv::detection::YoloX*      |          yolox_m.opt.param&bin          |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 97Mb  |
+|     *lite::ncnn::cv::detection::YoloX*      |          yolox_s.opt.param&bin           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 34Mb  |
+|     *lite::ncnn::cv::detection::YoloX*      |         yolox_tiny.opt.param&bin         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 19Mb  |
+|     *lite::ncnn::cv::detection::YoloX*      |         yolox_nano.opt.param&bin         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 3.5Mb |
+
+
+
 ## 4. 接口文档
 
 在[lite.ai.toolkit](https://github.com/DefTruth/lite.ai.toolkit) 中，YOLOX的实现类为：
@@ -73,6 +90,7 @@ TNN模型文件下载地址，([Baidu Drive](https://pan.baidu.com/s/1lvM2YKyUbE
 class LITE_EXPORTS lite::cv::detection::YoloX;
 class LITE_EXPORTS lite::mnn::cv::detection::YoloX;
 class LITE_EXPORTS lite::tnn::cv::detection::YoloX;
+class LITE_EXPORTS lite::ncnn::cv::detection::YoloX;
 ```  
 
 该类型目前包含1公共接口`detect`用于进行目标检测。
@@ -187,6 +205,36 @@ static void test_tnn()
 }
 ```  
 
+### 5.3 NCNN版本
+```c++
+#include "lite/lite.h"
+
+static void test_ncnn()
+{
+#ifdef ENABLE_NCNN
+    std::string param_path = "../hub/ncnn/cv/yolox_s.opt.param";
+    std::string bin_path = "../hub/ncnn/cv/yolox_s.opt.bin";
+    std::string test_img_path = "../resources/5.jpg";
+    std::string save_img_path = "../logs/5.jpg";
+    
+    // 4. Test Specific Engine NCNN
+    auto *yolox = new lite::ncnn::cv::detection::YoloX(param_path, bin_path);
+    
+    std::vector<lite::types::Boxf> detected_boxes;
+    cv::Mat img_bgr = cv::imread(test_img_path);
+    yolox->detect(img_bgr, detected_boxes);
+    
+    lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+    
+    cv::imwrite(save_img_path, img_bgr);
+    
+    std::cout << "NCNN Version Detected Boxes Num: " << detected_boxes.size() << std::endl;
+    
+    delete yolox;
+#endif
+}
+```  
+
 * 输出结果为:
 <div align='center'>
   <img src='resources/1.jpg' height="100px" width="160px">
@@ -261,8 +309,8 @@ Output: 0 Name: outputs Dim: 1 :8400
 Output: 0 Name: outputs Dim: 2 :85
 ========================================
 detected num_anchors: 8400
-generate_bboxes num: 343
-Default Version Detected Boxes Num: 53
+generate_bboxes num: 96
+Default Version Detected Boxes Num: 11
 LITEORT_DEBUG LogId: ../hub/onnx/cv/yolox_s.onnx
 =============== Input-Dims ==============
 input_node_dims: 1
@@ -275,7 +323,7 @@ Output: 0 Name: outputs Dim: 1 :8400
 Output: 0 Name: outputs Dim: 2 :85
 ========================================
 detected num_anchors: 8400
-generate_bboxes num: 181
+generate_bboxes num: 195
 ONNXRuntime Version Detected Boxes Num: 26
 LITEMNN_DEBUG LogId: ../hub/mnn/cv/yolox_s.mnn
 =============== Input-Dims ==============
@@ -286,8 +334,17 @@ getSessionOutputAll done!
 Output: outputs:        **Tensor shape**: 1, 8400, 85, 
 ========================================
 detected num_anchors: 8400
-generate_bboxes num: 138
-MNN Version Detected Boxes Num: 16
+generate_bboxes num: 146
+MNN Version Detected Boxes Num: 17
+LITENCNN_DEBUG LogId: ../hub/ncnn/cv/yolox_s.opt.param
+=============== Input-Dims ==============
+Input: inputs: shape: c=0 h=0 w=0
+=============== Output-Dims ==============
+Output: outputs: shape: c=0 h=0 w=0
+========================================
+detected num_anchors: 8400
+generate_bboxes num: 296
+NCNN Version Detected Boxes Num: 40
 LITETNN_DEBUG LogId: ../hub/tnn/cv/yolox_s.opt.tnnproto
 =============== Input-Dims ==============
 inputs: [1 3 640 640 ]
@@ -296,7 +353,7 @@ Input Data Format: NCHW
 outputs: [1 8400 85 1 ]
 ========================================
 detected num_anchors: 8400
-generate_bboxes num: 113
+generate_bboxes num: 108
 TNN Version Detected Boxes Num: 13
 Testing Successful !
 ```  
