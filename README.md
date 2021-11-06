@@ -13,7 +13,7 @@
 
 ## 2. C++版本源码
 
-YOLOX C++ 版本的源码包含ONNXRuntime、MNN、TNN和NCNN四个版本，可以在 [lite.ai.toolkit](https://github.com/DefTruth/lite.ai.toolkit) 工具箱中找到。本项目主要介绍如何基于 [lite.ai.toolkit](https://github.com/DefTruth/lite.ai.toolkit) 工具箱，直接使用YOLOX来跑目标检测。需要说明的是，本项目是基于MacOS下编译的 [liblite.ai.toolkit.v0.1.0.dylib](https://github.com/DefTruth/yolox.lite.ai.toolkit/blob/main/lite.ai.toolkit/lib) 来实现的，对于使用MacOS的用户，可以直接下载本项目包含的*liblite.ai.toolkit.v0.1.0*动态库和其他依赖库进行使用。而非MacOS用户，则需要从[lite.ai.toolkit](https://github.com/DefTruth/lite.ai.toolkit) 中下载源码进行编译。[lite.ai.toolkit](https://github.com/DefTruth/lite.ai.toolkit) c++工具箱目前包含70+流行的开源模型。
+YOLOX C++ 版本的源码包含ONNXRuntime、MNN、TNN和NCNN四个版本，包括YOLOX的旧版本模型和新版本模型(YOLOX-v0.1.1)的推理。YOLOX-v0.1.1和旧版本的YOLOX模型在预处理和模型输入输出的节点名称有所不同。源码可以在 [lite.ai.toolkit](https://github.com/DefTruth/lite.ai.toolkit) 工具箱中找到。本项目主要介绍如何基于 [lite.ai.toolkit](https://github.com/DefTruth/lite.ai.toolkit) 工具箱，直接使用YOLOX来跑目标检测。需要说明的是，本项目是基于MacOS下编译的 [liblite.ai.toolkit.v0.1.0.dylib](https://github.com/DefTruth/yolox.lite.ai.toolkit/blob/main/lite.ai.toolkit/lib) 来实现的，对于使用MacOS的用户，可以直接下载本项目包含的*liblite.ai.toolkit.v0.1.0*动态库和其他依赖库进行使用。而非MacOS用户，则需要从[lite.ai.toolkit](https://github.com/DefTruth/lite.ai.toolkit) 中下载源码进行编译。[lite.ai.toolkit](https://github.com/DefTruth/lite.ai.toolkit) c++工具箱目前包含70+流行的开源模型。
 * [yolox.cpp](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/ort/cv/yolox.cpp)
 * [yolox.h](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/ort/cv/yolox.h)
 * [mnn_yolox.cpp](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/mnn/cv/mnn_yolox.cpp)
@@ -21,7 +21,15 @@ YOLOX C++ 版本的源码包含ONNXRuntime、MNN、TNN和NCNN四个版本，可�
 * [tnn_yolox.cpp](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/tnn/cv/tnn_yolox.cpp)
 * [tnn_yolox.h](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/tnn/cv/tnn_yolox.h)
 * [ncnn_yolox.cpp](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/ncnn/cv/ncnn_yolox.cpp)
-* [ncnn_yolox.h](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/ncnn/cv/ncnn_yolox.h)
+* [ncnn_yolox.h](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/ncnn/cv/ncnn_yolox.h)  
+* [yolox_v0.1.1.cpp](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/ort/cv/yolox_v0.1.1.cpp)
+* [yolox_v0.1.1.h](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/ort/cv/yolox_v0.1.1.h)
+* [mnn_yolox_v0.1.1.cpp](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/mnn/cv/mnn_yolox_v0.1.1.cpp)
+* [mnn_yolox_v0.1.1.h](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/mnn/cv/mnn_yolox_v0.1.1.h)
+* [tnn_yolox_v0.1.1.cpp](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/tnn/cv/tnn_yolox_v0.1.1.cpp)
+* [tnn_yolox_v0.1.1.h](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/tnn/cv/tnn_yolox_v0.1.1.h)
+* [ncnn_yolox_v0.1.1.cpp](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/ncnn/cv/ncnn_yolox_v0.1.1.cpp)
+* [ncnn_yolox_v0.1.1.h](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/ncnn/cv/ncnn_yolox_v0.1.1.h)
 
 ONNXRuntime C++、MNN、TNN和NCNN版本的推理实现均已测试通过，欢迎白嫖~  
 
@@ -40,6 +48,13 @@ ONNXRuntime C++、MNN、TNN和NCNN版本的推理实现均已测试通过，欢�
 |     *lite::cv::detection::YoloX*      |          yolox_s.onnx           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 34Mb  |
 |     *lite::cv::detection::YoloX*      |         yolox_tiny.onnx         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 19Mb  |
 |     *lite::cv::detection::YoloX*      |         yolox_nano.onnx         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 3.5Mb |
+|     *lite::cv::detection::YoloX_V_0_1_1*      |          yolox_x_v0.1.1.onnx           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 378Mb |
+|     *lite::cv::detection::YoloX_V_0_1_1*      |          yolox_l_v0.1.1.onnx           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 207Mb |
+|     *lite::cv::detection::YoloX_V_0_1_1*      |          yolox_m_v0.1.1.onnx           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 97Mb  |
+|     *lite::cv::detection::YoloX_V_0_1_1*      |          yolox_s_v0.1.1.onnx           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 34Mb  |
+|     *lite::cv::detection::YoloX_V_0_1_1*      |         yolox_tiny_v0.1.1.onnx         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 19Mb  |
+|     *lite::cv::detection::YoloX_V_0_1_1*      |         yolox_nano_v0.1.1.onnx         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 3.5Mb |
+
 
 
 ### 3.2 MNN模型文件
@@ -53,6 +68,12 @@ MNN模型文件下载地址，([Baidu Drive](https://pan.baidu.com/s/1KyO-bCYUv6
 |     *lite::mnn::cv::detection::YoloX*      |          yolox_s.mnn           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 34Mb  |
 |     *lite::mnn::cv::detection::YoloX*      |         yolox_tiny.mnn         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 19Mb  |
 |     *lite::mnn::cv::detection::YoloX*      |         yolox_nano.mnn         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 3.5Mb |
+|     *lite::mnn::cv::detection::YoloX_V_0_1_1*      |          yolox_x_v0.1.1.mnn           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 378Mb |
+|     *lite::mnn::cv::detection::YoloX_V_0_1_1*      |          yolox_l_v0.1.1.mnn           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 207Mb |
+|     *lite::mnn::cv::detection::YoloX_V_0_1_1*      |          yolox_m_v0.1.1.mnn           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 97Mb  |
+|     *lite::mnn::cv::detection::YoloX_V_0_1_1*      |          yolox_s_v0.1.1.mnn           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 34Mb  |
+|     *lite::mnn::cv::detection::YoloX_V_0_1_1*      |         yolox_tiny_v0.1.1.mnn         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 19Mb  |
+|     *lite::mnn::cv::detection::YoloX_V_0_1_1*      |         yolox_nano_v0.1.1.mnn         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 3.5Mb |
 
 
 ### 3.3 TNN模型文件
@@ -66,6 +87,12 @@ TNN模型文件下载地址，([Baidu Drive](https://pan.baidu.com/s/1lvM2YKyUbE
 |     *lite::tnn::cv::detection::YoloX*      |          yolox_s.opt.tnnproto&tnnmodel           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 34Mb  |
 |     *lite::tnn::cv::detection::YoloX*      |         yolox_tiny.opt.tnnproto&tnnmodel         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 19Mb  |
 |     *lite::tnn::cv::detection::YoloX*      |         yolox_nano.opt.tnnproto&tnnmodel         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 3.5Mb |
+|     *lite::tnn::cv::detection::YoloX_V_0_1_1*      |          yolox_x_v0.1.1.opt.tnnproto&tnnmodel           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 378Mb |
+|     *lite::tnn::cv::detection::YoloX_V_0_1_1*      |          yolox_l_v0.1.1.opt.tnnproto&tnnmodel           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 207Mb |
+|     *lite::tnn::cv::detection::YoloX_V_0_1_1*      |          yolox_m_v0.1.1.opt.tnnproto&tnnmodel           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 97Mb  |
+|     *lite::tnn::cv::detection::YoloX_V_0_1_1*      |          yolox_s_v0.1.1.opt.tnnproto&tnnmodel           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 34Mb  |
+|     *lite::tnn::cv::detection::YoloX_V_0_1_1*      |         yolox_tiny_v0.1.1.opt.tnnproto&tnnmodel         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 19Mb  |
+|     *lite::tnn::cv::detection::YoloX_V_0_1_1*      |         yolox_nano_v0.1.1.opt.tnnproto&tnnmodel         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 3.5Mb |
 
 
 ### 3.4 NCNN模型文件
@@ -79,6 +106,12 @@ NCNN模型文件下载地址，([Baidu Drive](https://pan.baidu.com/s/1hlnqyNsFb
 |     *lite::ncnn::cv::detection::YoloX*      |          yolox_s.opt.param&bin           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 34Mb  |
 |     *lite::ncnn::cv::detection::YoloX*      |         yolox_tiny.opt.param&bin         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 19Mb  |
 |     *lite::ncnn::cv::detection::YoloX*      |         yolox_nano.opt.param&bin         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 3.5Mb |
+|     *lite::ncnn::cv::detection::YoloX_V_0_1_1*      |          yolox_x_v0.1.1.opt.param&bin           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 378Mb |
+|     *lite::ncnn::cv::detection::YoloX_V_0_1_1*      |          yolox_l_v0.1.1.opt.param&bin           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 207Mb |
+|     *lite::ncnn::cv::detection::YoloX_V_0_1_1*      |          yolox_m_v0.1.1.opt.param&bin           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 97Mb  |
+|     *lite::ncnn::cv::detection::YoloX_V_0_1_1*      |          yolox_s_v0.1.1.opt.param&bin           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 34Mb  |
+|     *lite::ncnn::cv::detection::YoloX_V_0_1_1*      |         yolox_tiny_v0.1.1.opt.param&bin         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 19Mb  |
+|     *lite::ncnn::cv::detection::YoloX_V_0_1_1*      |         yolox_nano_v0.1.1.opt.param&bin         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 3.5Mb |
 
 
 
@@ -91,6 +124,10 @@ class LITE_EXPORTS lite::cv::detection::YoloX;
 class LITE_EXPORTS lite::mnn::cv::detection::YoloX;
 class LITE_EXPORTS lite::tnn::cv::detection::YoloX;
 class LITE_EXPORTS lite::ncnn::cv::detection::YoloX;
+class LITE_EXPORTS lite::cv::detection::YoloX_V_0_1_1;  // YOLOX-v0.1.1 (latest)
+class LITE_EXPORTS lite::mnn::cv::detection::YoloX_V_0_1_1;
+class LITE_EXPORTS lite::tnn::cv::detection::YoloX_V_0_1_1;
+class LITE_EXPORTS lite::ncnn::cv::detection::YoloX_V_0_1_1;
 ```  
 
 该类型目前包含1公共接口`detect`用于进行目标检测。
@@ -117,7 +154,7 @@ public:
 * nms_type：NMS算法的类型，默认为不同的类别各自做NMS。
 
 ## 5. 使用案例
-这里测试使用的是yolox_s.onnx版本(20210819之前)的模型，你可以尝试使用其他版本的模型。
+这里测试使用的是yolox_s.onnx版本(20210819之前)的模型，你可以尝试使用YOLOX-v0.1.1版本的模型。
 
 ### 5.1 ONNXRuntime版本
 ```c++
