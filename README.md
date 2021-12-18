@@ -1,4 +1,4 @@
-# yolox-ncnn-mnn-tnn-onnxruntime
+# yolox.lite.ai.toolkit
 使用Lite.AI.ToolKit 🚀🚀🌟 C++工具箱来跑YOLOX的一些案例(https://github.com/DefTruth/lite.ai.toolkit) , 包含ONNXRuntime C++、MNN、TNN和NCNN版本。
 
 <div align='center'>
